@@ -10,10 +10,8 @@ on:
     tags:
       - v*
 
-  # Run tests for any PRs.
-  pull_request:
-
 env:
+  IMAGE_OWNER: LarvataTW
   IMAGE_NAME: awx-cli
 
 jobs:
@@ -37,7 +35,7 @@ jobs:
 
       - name: Push image
         run: |
-          IMAGE_ID=ghcr.io/LarvataTW/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/$IMAGE_OWNER/$IMAGE_NAME
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           # Strip git ref prefix from version
